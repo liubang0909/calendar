@@ -1,0 +1,262 @@
+/* pages/calendar/calendar.wxss */
+
+.calendar-box-nor {
+  width: 100%;
+}
+
+
+.calendar-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: white;
+  /* transition: all 0.3s;
+  transform: translateY(-100%); */
+  border-radius: 30rpx 30rpx 0px 0px;
+  overflow: hidden;
+}
+
+.calendar-content-view{
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  padding-bottom: 34rpx;
+}
+
+
+.calendar-wrapper.active {
+  transform: translateY(0%);
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100rpx;
+  background: #fff;
+  z-index: 1000;
+}
+
+.top-jiantou {
+  width: 100rpx;
+  height: 100rpx;
+  text-align: center;
+  box-sizing: border-box;
+  line-height: 100rpx;
+}
+
+.head-arrow {
+  width: 10rpx;
+  height: 17rpx;
+}
+
+
+
+
+
+.calendar-panel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  height: 100rpx;
+}
+
+
+
+.date-befor,
+.date-after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 78rpx;
+  width: 78rpx;
+  text-align: center;
+  line-height: 78rpx;
+}
+
+
+.calendar-panel-box {
+  display: flex;
+}
+
+.calendar-panel-text {
+
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #7F7F7F;
+  line-height: 40rpx;
+}
+
+.calendar-header {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-top: 32rpx;
+  padding-bottom: 16rpx;
+  flex-shrink: 0;
+}
+.calendar-header-inner-view {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+
+
+.calendar-header-view {
+  width: 100%;
+  text-align: center;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #42475B;
+  line-height: 33rpx;
+  opacity: 0.5;
+
+}
+
+.calendar-body {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.calender-body-date-week {
+  display: flex;
+  position: relative;
+}
+
+.date {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  line-height: 78rpx;
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #42475B;
+  align-items: center;
+}
+
+.date.active {
+  /* background: red; */
+}
+
+.placeholder {
+  opacity: 0.5;
+  font-size: 30rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #42475B;
+}
+
+.date-current {
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FD7B99;
+}
+
+.data-sel-image {
+  position: absolute;
+  align-self: center;
+  justify-self: center;
+  width: 64rpx;
+  height: 64rpx;
+  z-index: 2;
+  left: 21rpx;
+  top: 20rpx;
+}
+
+
+.data-bottom-view {
+  width: 100%;
+  height: 48rpx;
+  position: relative;
+  z-index: 200;
+  background-color:#F2F6FE;
+}
+
+.data-bottom-back-view {
+  width: 100%;
+  height: 48rpx;
+  opacity: 0.5;
+  background: linear-gradient(270deg, rgba(210, 227, 255, 0) 0%, #D2E3FF 100%);
+ 
+}
+
+
+.time-text {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #40495D;
+  line-height: 40rpx;
+  left: 20rpx;
+  top: 4rpx;
+  position: absolute;
+}
+
+
+.packup {
+  width: 163rpx;
+  height: 48rpx;
+  position: absolute;
+  top: 0rpx;
+  right: 50rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.packup-arrow {
+  width: 163rpx;
+  height: 48rpx;
+}
+
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.calendar-scroll-view{
+  height: 190rpx;
+  background-color: white;
+
+}
+
+.scroll-content-view{
+  display: flex;
+  flex-direction: column;
+  height: 190rpx;
+  padding-left: 20rpx;
+}
+
+
+
+.scroll-bottom-view{
+  display: flex;
+  flex-wrap: nowrap;
+  height: 75rpx;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.location-view{
+ position: absolute;
+ width: 1rpx;
+ height: 1rpx;
+ left: -20rpx;
+}
+
+.right-space-view{
+  width: 20rpx;
+  height: 20rpx;
+  flex-shrink: 0;
+}

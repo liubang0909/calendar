@@ -1,0 +1,100 @@
+<view class="calendar-box-nor">
+  <view class="calendar-wrapper">
+    <!-- 展开状态的话 -->
+    <block wx:if="{{isOpen}}">
+      <view class="calendar-content-view">
+
+        <view class="calendar-panel">
+          <view class="date-befor" data-id="0" data-type="month" bindtap='dataBefor'>
+            <image src="../calendar/images/cal_arrow_left.png" class="head-arrow" mode='widthFix'></image>
+          </view>
+          <view class="calendar-panel-box">
+            <text class="calendar-panel-text">{{canlender.year}}年</text>
+            <text class="calendar-panel-text">{{canlender.month}}月</text>
+          </view>
+          <view class="date-after" data-id="1" data-type="month" bindtap='dataBefor'>
+            <image src="../calendar/images/cal_arrow_right.png" class="head-arrow" mode='widthFix'></image>
+          </view>
+        </view>
+        <!-- 星期的标题 -->
+        <view class="calendar-header" style="{{isOpen?'padding-top:0rpx;width:100%;':''}}">
+          <block wx:for="{{titleArray}}" wx:key="titleItem">
+            <view class="calendar-header-view">{{item}}</view>
+          </block>
+        </view>
+        <view class="calendar-body" style="{{isOpen?'':'height:75rpx;'}}">
+          <block wx:for="{{canlender.weeks}}" wx:for-item="weeks" wx:for-index="week" wx:key="weeks">
+            <view class="calender-body-date-week" style="width:100%">
+              <block wx:for="{{weeks}}" wx:for-item="day" wx:key="day">
+                <view
+                  class="date {{canlender.month === day.month? '' : 'placeholder'}} {{day.today?'date-current': ''}} "
+                  data-week="{{week}}" data-index="{{index}}" data-ischeck="{{canlender.month === day.month}}">
+                  {{day.today?'今日':day.date}}
+                  <!-- 打卡的标示 -->
+                  <image src="../calendar/images/cal_sel.png" mode='widthFix' wx:if="{{day.have}}"
+                    class="data-sel-image">
+                  </image>
+                </view>
+              </block>
+            </view>
+          </block>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <!-- <scroll-view class="calendar-scroll-view"  enhanced="true"  paging-enabled="true"  scroll-x="true" enable-flex="true" scroll-with-animation="true" scroll-into-view="{{toView}}"> -->
+        
+        <swiper class="calendar-scroll-view" current="{{todayWeekIndex}}">
+       <block wx:for="{{canlender.weeks}}" wx:for-item="weeks" wx:for-index="week" wx:key="weeks">
+        <swiper-item>
+
+        <view class="scroll-content-view">
+          <view class="calendar-header">
+              <view class="calendar-header-inner-view">
+              <block wx:for="{{weeks}}" wx:for-item="day" wx:key="day">
+                <view class="calendar-header-view" style="width: 102rpx;flex-shrink: 0;">{{titleArray[index%7]}}</view>
+              </block>
+              <view wx:if="{{week==canlender.weeks.length-1}}" class="right-space-view"></view>
+              </view>              
+          </view>
+          <view class="scroll-bottom-view">
+              <view class="calender-body-date-week">
+                <!-- <view  wx:if="{{todayWeekIndex==week}}" id="toView" class="location-view"></view> -->
+                <block wx:for="{{weeks}}" wx:for-item="day" wx:key="day">
+                  <view
+                    class="date {{canlender.month === day.month? '' : 'placeholder'}} {{day.today?'date-current': ''}}"
+                    style="width: 102rpx;" data-week="{{week}}" data-index="{{index}}"
+                    data-ischeck="{{canlender.month === day.month}}">
+                    {{day.today?'今日':day.date}}
+                    <image src="../calendar/images/cal_sel.png" mode='widthFix' wx:if="{{day.have}}"
+                      class="data-sel-image">
+                    </image>
+                  </view>
+                </block>
+              </view>
+          </view>
+        </view>
+        </swiper-item>
+       </block>
+
+
+      </swiper>
+
+      <!-- </scroll-view> -->
+
+    </block>
+
+    <view class="data-bottom-view">
+      <view class="data-bottom-back-view">
+        <text class="time-text">{{timeStr}}</text>
+      </view>
+      <view class="packup" bindtap='packup'>
+        <image src="../calendar/images/cal_{{isOpen?'up':'down'}}.png" mode="widthFix" class="packup-arrow"></image>
+
+      </view>
+    </view>
+
+
+  </view>
+
+</view>
